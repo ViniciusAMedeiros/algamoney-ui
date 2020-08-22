@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="ui-g">
+            <div class="ui-g-10">
+                <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+            </div>
+            <div class="ui-g-2">
+                <m-language-selector></m-language-selector>
+            </div>
+        </div>
+        <ul class="navbar-menu" [hidden]="!exibindoMenu">
+            <li class="navbar-usuario">José da Silva</li>
+            <li class="navbar-menuitem"><a routerLink="lancamentos" routerLinkActive="selected">{{ 'MENU.ACCOUNTING_ENTRIES' | translate }}</a></li>
+            <li class="navbar-menuitem"><a routerLink="pessoas" routerLinkActive="selected">{{ 'MENU.PEOPLE' | translate}}</a></li>
+            <li class="navbar-menuitem"><a routerLink="">{{ 'MENU.LOGOUT' | translate}}</a></li>
+        </ul>
+    </div>
+</nav>

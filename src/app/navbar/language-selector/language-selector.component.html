@@ -1,0 +1,15 @@
+
+      <p-dropdown [options]="languages" [(ngModel)]="language" optionLabel="name" placeholder="Select a Country">
+        <ng-template pTemplate="selectedItem">
+            <div *ngIf="language">
+                <img src="{{language.flag}}"/>
+                <div>{{language.lang}}</div>
+            </div>
+        </ng-template>
+        <ng-template let-language pTemplate="item">
+            <div>
+                <img src="{{language.flag}}"/>
+                <div>{{language.flag}}</div>
+            </div>
+        </ng-template>
+    </p-dropdown>

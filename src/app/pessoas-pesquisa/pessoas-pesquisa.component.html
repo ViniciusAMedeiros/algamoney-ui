@@ -1,0 +1,28 @@
+<div class="container">
+    <form class="m-form m-form--label-align-right m-form--fit" novalidate [formGroup]="filterForm"
+          (ngSubmit)="search()"> 
+    <div class="ui-g">
+
+        <div class="ui-g-12">
+            <h1> {{ 'MENU.PEOPLE' | translate}}</h1>
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+            <label>{{ 'FIELD.NAME' | translate}}</label>
+            <input pInputText type="text" formControlName="nome">
+        </div>
+
+        <div class="ui-g-12">
+            <button pButton type="submit" [label]="'BUTTON.SEARCH' | translate"></button>
+        </div>
+
+        <div class="ui-g ui-fluid">
+            <app-datatable [data]="pessoas" [columns]="columns" [pag]="true" [rows]="3" [resp]="true" [isLoading]="tableStatus"></app-datatable>
+        </div>
+
+        <div class="ui-g-12">
+            <a pButton [label]="'BUTTON.NEW_PERSON' | translate"></a>
+        </div>
+    </div>
+</form>
+</div>

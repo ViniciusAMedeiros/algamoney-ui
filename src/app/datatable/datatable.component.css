@@ -1,0 +1,62 @@
+.actions {
+  display: inline !important;
+  margin-right: 5px!important;
+}
+
+.ui-table__message {
+  padding: 20px!important;
+  text-align: center !important;
+  font-weight: 500 !important;
+}
+
+.red {
+  color: red;
+}
+
+.blue{
+  color: blue
+}
+
+.action-col-size{
+  width: 105px !important;
+}
+
+.col-size-20{
+  width: 20% !important;
+}
+
+.col-size-40{
+  width: 40% !important;
+}
+
+.col-size-60{
+  width: 60% !important;
+}
+
+.col-size-80{
+  width: 80% !important;
+}
+
+.col-text-align-center{
+  text-align: center;
+}
+
+.col-text-align-right{
+  text-align: right;
+}
+
+.col-text-align-left{
+  text-align: left;
+}
+
+.btn-red{
+  background-color: #d90036 !important;
+  color: #FFFFFF !important;
+  border-color: #d90036 !important;
+}
+
+.btn-blue{
+  background-color: #007ad9 !important;
+  color: #FFFFFF !important;
+  border-color: #007ad9 !important;
+}

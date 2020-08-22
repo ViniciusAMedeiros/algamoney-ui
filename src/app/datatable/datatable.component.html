@@ -1,0 +1,67 @@
+<p-table [value]="data" [paginator]="pag" [rows]="rows" [responsive]="resp" [loading]="isLoading"
+  [rowsPerPageOptions]="[10,25,50]">
+  <!--Header-->
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col['columnDef']" [ngClass]="setColSize(col)">
+        {{col['header'] | translate}}
+        <p-sortIcon [field]="col.header"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <!--Fim do Header-->
+  <!--Body-->
+  <ng-template pTemplate="body" let-row>
+    <tr>
+
+      <td *ngFor="let col of columns">
+        <!-- status -->
+        <div *ngIf="col['columnDef'] === 'status';then status else action"></div>
+
+        <!-- action -->
+        <ng-template #action>
+          <div *ngIf="col['columnDef'] === 'actions' ;then actionCell else commonCell"></div>
+        </ng-template>
+
+        <!-- status -->
+        <ng-template #status>
+          <a [pTooltip]="row[col['columnDef']] === 'Ativo' ? ('ACTION.INACTIVATE' | translate)  : ('ACTION.ACTIVATE' | translate)"
+            tooltipPosition="top" href="#">
+            {{row[col['columnDef']]}} </a>
+        </ng-template>
+
+        <!-- action -->
+        <ng-template #actionCell>
+          <div *ngFor="let action of this.columns[this.columns.length - 1]['actions']" class="actions">
+            <a *ngIf="action.link; else callAction">
+              <i pButton icon="{{getIcon(action.label)}}" [pTooltip]="getTip(action.label)" tooltipPosition="top"
+                [ngClass]="setBtnColor(action)" [routerLink]="action.link"></i>
+            </a>
+
+            <ng-template #callAction>
+              <a pButton (click)="actionInvoke(action.event, row)" icon="{{getIcon(action.label)}}"
+                [pTooltip]="getTip(action.label)" tooltipPosition="top" [ngClass]="setBtnColor(action)"></a>
+            </ng-template>
+          </div>
+        </ng-template>
+
+        <!-- common -->
+        <ng-template #commonCell>
+          <div [ngClass]="setClass(row,col)">{{ col.cell(row) }}</div>
+        </ng-template>
+
+      </td>
+    </tr>
+  </ng-template>
+  <!--Fim do Body-->
+
+  <!-- empty message-->
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [attr.colspan]="columns.length" class="ui-table__message">
+        {{'FIELD.VALIDATION.NO_DATA' | translate}}
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>
