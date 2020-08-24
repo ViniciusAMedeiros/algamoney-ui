@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PessoaService } from './services/pessoa-service';
 import { HttpClientModule } from '@angular/common/http';
 import { LancamentoService } from './services/lancamento-service';
-import { DecimalPipe, DatePipe } from '@angular/common';
+import { DecimalPipe, DatePipe, AsyncPipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing-module.module';
 import { HomeComponent } from './home/home.component';
 import { LanguageSelectorComponent } from './navbar/language-selector/language-selector.component';
@@ -53,6 +53,7 @@ import {DropdownModule} from 'primeng/dropdown';
     LancamentoService,
     DecimalPipe,
     DatePipe,
+    AsyncPipe
   ],
   bootstrap: [AppComponent]
 })

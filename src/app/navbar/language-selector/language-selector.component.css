@@ -1,0 +1,9 @@
+.language-selector{
+    position: absolute;
+    top: 12px;
+    bottom: 0;
+    right: 10px;
+    width: 60px;
+    margin: 0;
+    padding: 0;
+}

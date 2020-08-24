@@ -2,6 +2,7 @@ import { filter } from 'rxjs/operators';
 import { Component, ElementRef, HostBinding, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { TranslationService } from 'src/app/services/translation.service';
+import { SelectItem } from 'primeng/components/common/selectitem';
 
 interface LanguageFlag {
 	lang: string;
@@ -16,8 +17,8 @@ interface LanguageFlag {
 	styleUrls: ['./language-selector.component.css']
 })
 export class LanguageSelectorComponent implements OnInit {
-  
-  language: LanguageFlag;
+
+	language: LanguageFlag;
 	languages: LanguageFlag[] = [
 		{
 			lang: 'en',
@@ -36,21 +37,23 @@ export class LanguageSelectorComponent implements OnInit {
 		}
 	];
 
+
 	constructor(
 		private translationService: TranslationService,
 		private router: Router,
-    private el: ElementRef,
-    private changeDetectorRef: ChangeDetectorRef
-	) {}
+		private el: ElementRef,
+		private changeDetectorRef: ChangeDetectorRef
+	) { }
 
 	ngOnInit() {
-    this.setSelectedLanguage();
+		this.setSelectedLanguage();
 		this.router.events
 			.pipe(filter(event => event instanceof NavigationStart))
 			.subscribe(event => {
-        this.setSelectedLanguage();
-        this.changeDetectorRef.detectChanges();
+				this.setSelectedLanguage();
+				this.changeDetectorRef.detectChanges();
 			});
+
 	}
 
 	setLanguage(lang) {
@@ -68,8 +71,11 @@ export class LanguageSelectorComponent implements OnInit {
 	setSelectedLanguage(): any {
 		this.translationService.getSelectedLanguage().subscribe(lang => {
 			if (lang) {
-        this.setLanguage(lang);
+				this.setLanguage(lang);
+				this.language = lang;
+				this.changeDetectorRef.detectChanges();
 			}
 		});
 	}
+
 }
