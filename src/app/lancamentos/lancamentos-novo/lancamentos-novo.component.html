@@ -1,0 +1,15 @@
+<div class="container">
+    <form [formGroup]="lancamentosForm">
+        <div class="ui-g-12">
+
+            <div class="ui-g-3 ui-fluid">
+                <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
+                <p-calendar formControlName="vencimento" [dateFormat]="locale.dateFormat" [locale]="locale"></p-calendar>
+            </div>
+            <div class="ui-g-3 ui-fluid">
+                <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
+                <p-calendar formControlName="recebimento" [dateFormat]="locale.dateFormat" [locale]="locale"></p-calendar>
+            </div>
+        </div>
+    </form>
+</div>

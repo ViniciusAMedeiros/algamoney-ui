@@ -8,7 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
-import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentosPesquisaComponent } from 'src/app/lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { DatatableComponent } from './datatable/datatable.component'
@@ -17,10 +17,12 @@ import { PessoaService } from './services/pessoa-service';
 import { HttpClientModule } from '@angular/common/http';
 import { LancamentoService } from './services/lancamento-service';
 import { DecimalPipe, DatePipe, AsyncPipe } from '@angular/common';
-import { AppRoutingModule } from './app-routing-module.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LanguageSelectorComponent } from './navbar/language-selector/language-selector.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { LancamentosNovoComponent } from './lancamentos/lancamentos-novo/lancamentos-novo.component';
+import { CalendarModule } from 'primeng/calendar'
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import {DropdownModule} from 'primeng/dropdown';
     PessoasPesquisaComponent,
     DatatableComponent,
     HomeComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    LancamentosNovoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {DropdownModule} from 'primeng/dropdown';
     TranslateModule.forRoot(),
     RouterModule,
     AppRoutingModule,
-    DropdownModule
+    DropdownModule,
+    CalendarModule
   ],
   providers: [
     PessoaService,

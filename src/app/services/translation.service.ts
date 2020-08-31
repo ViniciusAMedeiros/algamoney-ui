@@ -12,6 +12,7 @@ export interface Locale {
 })
 export class TranslationService {
 	private langIds: any = [];
+	public locale: any;
 
 	constructor(private translate: TranslateService) {
 		// add new langIds to the list
@@ -23,7 +24,6 @@ export class TranslationService {
 
 	public loadTranslations(...args: Locale[]): void {
 		const locales = [...args];
-		console.log(locales);
 		locales.forEach(locale => {
 			// use setTranslation() with the third argument set to true
 			// to append translations instead of replacing them
@@ -47,4 +47,5 @@ export class TranslationService {
 	public getSelectedLanguage(): Observable<any> {
 		return of(localStorage.getItem('language') || this.translate.getDefaultLang());
 	}
+
 }

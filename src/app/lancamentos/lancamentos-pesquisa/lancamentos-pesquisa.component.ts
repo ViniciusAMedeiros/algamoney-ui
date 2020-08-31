@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Lancamento } from '../model/lancamento';
-import { LancamentoService } from '../services/lancamento-service';
+import { Lancamento } from 'src/app/model/lancamento';
+import { LancamentoService } from 'src/app/services/lancamento-service';
 import { DecimalPipe, DatePipe } from '@angular/common';
 
 @Component({
