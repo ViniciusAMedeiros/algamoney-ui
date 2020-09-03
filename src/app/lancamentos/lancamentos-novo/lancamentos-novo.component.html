@@ -4,11 +4,21 @@
 
             <div class="ui-g-3 ui-fluid">
                 <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
-                <p-calendar formControlName="vencimento" [dateFormat]="locale.dateFormat" [locale]="locale"></p-calendar>
+                <p-calendar formControlName="vencimento" [dateFormat]="locale.dateFormat" [locale]="locale">
+                </p-calendar>
             </div>
             <div class="ui-g-3 ui-fluid">
                 <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
-                <p-calendar formControlName="recebimento" [dateFormat]="locale.dateFormat" [locale]="locale"></p-calendar>
+                <p-calendar formControlName="recebimento" [dateFormat]="locale.dateFormat" [locale]="locale">
+                </p-calendar>
+            </div>
+            <div class ="ui-g-9 ui-fluid">
+                <label> {{ 'FIELD.DESCRIPTION' | translate}} </label>
+                <input pInputText formControlName="descricao">
+            </div>
+            <div class="ui-g-3 ui-fluid">
+                <label> {{ 'FIELD.VALUE' | translate}}</label>
+                <input pInputText currencyMask formControlName="valor" [options]="{ prefix: '', thousands: '.', decimal: ',' }">
             </div>
         </div>
     </form>

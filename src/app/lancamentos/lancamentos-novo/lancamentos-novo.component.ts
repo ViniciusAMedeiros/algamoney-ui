@@ -23,7 +23,9 @@ export class LancamentosNovoComponent implements OnInit {
     
     this.lancamentosForm = this.formBuilder.group({
       vencimento: [''],
-      recebimento: ['']
+      recebimento: [''],
+      descricao: [''],
+      valor: ['0']
     })
     this.locale = this.translationService.locale;
     console.log(this.locale); 
