@@ -22,12 +22,25 @@ label {
     text-align: right;
 }
 
-.col-data{
+.col-data {
     width: 120px;
     text-align: center;
 }
 
-.col-acoes{
+.col-acoes {
     width: 100px;
     text-align: center;
+}
+
+button {
+    margin-right: 5px !important;
+}
+
+.ui-button-info {
+    background-color: #00BFFF !important;
+    border-color: #00BFFF !important;
+}
+
+.select-button {
+    padding: .5em 1em !important; 
 }

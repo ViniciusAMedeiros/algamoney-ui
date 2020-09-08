@@ -1,7 +1,8 @@
 <div class="container">
-  <form class="m-form m-form--label-align-right m-form--fit" novalidate [formGroup]="filterForm" (ngSubmit)="search()">
+  <form novalidate [formGroup]="filterForm" (ngSubmit)="search()">
+    
     <div class="ui-g-12">
-      <h1>{{ 'MENU.ACCOUNTING_ENTRIES' | translate }}</h1>
+      <h1>{{ 'MENU.ACCOUNTING_ENTRY' | translate }}</h1>
     </div>
 
     <div class="ui-g-12 ui-fluid">

@@ -24,6 +24,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { LancamentosNovoComponent } from './lancamentos/lancamentos-novo/lancamentos-novo.component';
 import { CalendarModule } from 'primeng/calendar'
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     AppRoutingModule,
     DropdownModule,
     CalendarModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    InputTextareaModule,
+    SelectButtonModule
   ],
   providers: [
     PessoaService,

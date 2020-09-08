@@ -93,7 +93,8 @@ export class LanguageSelectorComponent implements OnInit {
 				today: 'Hoje',
 				clear: 'Limpar',
 				dateFormat: 'dd/mm/yy',
-				weekHeader: 'Semana'
+				weekHeader: 'Semana',
+				monetary: { prefix: '', thousands: '.', decimal: ',' }
 			};
 		} else if (lang === 'en') {
 			this.translationService.locale = {
@@ -106,7 +107,8 @@ export class LanguageSelectorComponent implements OnInit {
 				today: 'Today',
 				clear: 'Clear',
 				dateFormat: 'mm/dd/yy',
-				weekHeader: 'Week'
+				weekHeader: 'Week',
+				monetary: { prefix: '', thousands: ',', decimal: '.' }
 			};
 		} else if (lang === 'es') {
 			this.translationService.locale = {
@@ -119,7 +121,8 @@ export class LanguageSelectorComponent implements OnInit {
 				today: 'Hoy',
 				clear: 'Borrar',
 				dateFormat: 'mm/dd/yy',
-				weekHeader: 'Semana'
+				weekHeader: 'Semana',
+				monetary: { prefix: '', thousands: '.', decimal: ',' }
 			};
 		}
 		console.log(this.translationService.locale);

@@ -22,6 +22,9 @@ export const locale = {
 			DATE_OF_PAYMENT: 'Data de Pagamento',
 			VALUE: 'Valor',
 			PERSON: 'Pessoa',
+			OBSERVATION: 'Observação',
+			CATEGORY: 'Categoria',
+			RECEIPT_DATE: 'Data de Recebimento',
 
 			VALIDATION: {
 				NO_DATA: 'Nenhum registro encontrado',
@@ -39,10 +42,17 @@ export const locale = {
 			SEARCH: 'Pesquisar',
 			NEW_ACCOUNTING_ENTRY: 'Novo Lançamento',
 			NEW_PERSON: 'Nova Pessoa',
+			SAVE: 'Salvar',
+			NEW: 'Novo',
+			BACK_TO_SEARCH: 'Voltar para a pesquisa',
+			INCOME: 'Receita',
+			EXPENSE: 'Despesa'
 		},
 		MENU: {
-			ACCOUNTING_ENTRIES: 'Lançamentos',
-			PEOPLE: 'Pessoas',
+			ACCOUNTING_ENTRY: 'Lançamento',
+			NEW_ACCOUNTING_ENTRY: 'Novo Lancamento',
+			PERSON: 'Pessoa',
+			NEW_PERSON: 'Nova Pessoa',
 			LOGOUT: 'Sair'
 		}
 	}

@@ -1,25 +1,60 @@
 <div class="container">
-    <form [formGroup]="lancamentosForm">
-        <div class="ui-g-12">
-
-            <div class="ui-g-3 ui-fluid">
+    <form [formGroup]="lancamentosForm" (ngSubmit)="salvar()">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <h1>{{ 'MENU.NEW_ACCOUNTING_ENTRY' | translate }}</h1>
+            </div>
+            <div class="ui-g-12">
+                <p-selectButton [options]="tipos" formControlName="tipo">
+                    <ng-template let-item>
+                        <div class="select-button">
+                            {{ item.label | translate}}
+                        </div>
+                    </ng-template>
+                </p-selectButton>
+            </div>
+            <div class="ui-g-3 ui-sm-6 ui-fluid">
                 <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
                 <p-calendar formControlName="vencimento" [dateFormat]="locale.dateFormat" [locale]="locale">
                 </p-calendar>
             </div>
-            <div class="ui-g-3 ui-fluid">
-                <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
+            <div class="ui-g-3 ui-sm-6 ui-fluid">
+                <label>
+                    {{ this.lancamentosForm.get('tipo').value == 'Despesa' ?('FIELD.DUE_DATE' | translate) : ('FIELD.RECEIPT_DATE' | translate)}}</label>
                 <p-calendar formControlName="recebimento" [dateFormat]="locale.dateFormat" [locale]="locale">
                 </p-calendar>
             </div>
-            <div class ="ui-g-9 ui-fluid">
+
+            <div class="ui-g-9 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.DESCRIPTION' | translate}} </label>
                 <input pInputText formControlName="descricao">
             </div>
-            <div class="ui-g-3 ui-fluid">
+
+            <div class="ui-g-3 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.VALUE' | translate}}</label>
-                <input pInputText currencyMask formControlName="valor" [options]="{ prefix: '', thousands: '.', decimal: ',' }">
+                <input pInputText currencyMask formControlName="valor" [options]="locale.monetary">
             </div>
+
+            <div class="ui-g-6 ui-sm-12 ui-fluid">
+                <label> {{ 'FIELD.CATEGORY' | translate}} </label>
+                <input pInputText formControlName="categoria">
+            </div>
+
+            <div class="ui-g-6 ui-sm-12 ui-fluid">
+                <label> {{ 'FIELD.PERSON' | translate}} </label>
+                <input pInputText formControlName="pessoa">
+            </div>
+            <div class="ui-g-12 ui-fluid">
+                <label>{{ 'FIELD.OBSERVATION' | translate}}</label>
+                <textarea pInputTextarea formControlName="observacao" rows="3"></textarea>
+            </div>
+
+            <div class="ui-g-12">
+                <button pButton type="submit" [label]="'BUTTON.SAVE' | translate"></button>
+                <button class="ui-button-info" pButton type="button" [label]="'BUTTON.NEW' | translate"></button>
+                <a href="javascript:;" (click)="back()"> {{ 'BUTTON.BACK_TO_SEARCH' | translate}}</a>
+            </div>
+
         </div>
     </form>
 </div>
