@@ -13,6 +13,7 @@ export class PessoaComboComponent implements OnInit {
   pessoa$: Observable<any[]>;
   @Input() isRequired: boolean = false;
   @Input() parentForm: FormGroup;
+  @Input() filter: boolean = false;
   
   constructor(private pessoaService: PessoaService) { }
 

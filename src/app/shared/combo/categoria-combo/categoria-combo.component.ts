@@ -13,6 +13,7 @@ export class CategoriaComboComponent implements OnInit {
   categoria$: Observable<any[]>;
   @Input() isRequired: boolean = false;
   @Input() parentForm: FormGroup;
+  @Input() filter: boolean = false;
 
   constructor(private categoriaService: CategoriaService) { }
 
