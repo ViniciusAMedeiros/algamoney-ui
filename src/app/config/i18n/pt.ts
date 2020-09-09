@@ -54,6 +54,10 @@ export const locale = {
 			PERSON: 'Pessoa',
 			NEW_PERSON: 'Nova Pessoa',
 			LOGOUT: 'Sair'
+		},
+
+		MESSAGE:{
+			SELECT_AN_OPTION: 'Selecione uma opção'
 		}
 	}
 

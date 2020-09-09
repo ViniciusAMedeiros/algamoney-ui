@@ -48,6 +48,10 @@ export const locale = {
 			PERSON: 'Persona',
 			NEW_PERSON: 'Nueva Persona',
 			LOGOUT: 'Cerrar Sesión',
+		},
+
+		MESSAGE:{
+			SELECT_AN_OPTION: 'Seleccione una opción'
 		}
 
 	}

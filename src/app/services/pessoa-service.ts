@@ -4,11 +4,11 @@ import { Pessoa } from '../model/pessoa';
 import { Observable, of } from 'rxjs';
 
 @Injectable()
-export class PessoaService{
+export class PessoaService {
 
-    constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) { }
 
-    pessoas: any[] = [ 
+  pessoas: any[] = [
     { nome: 'Manuel Pinheiro', cidade: 'Uberlandia', estado: 'MG', status: 'Ativo' },
     { nome: 'Sebastião da Silva', cidade: 'São Paulo', estado: 'SP', status: 'Inativo' },
     { nome: 'Carla Souza', cidade: 'Florianópolis', estado: 'SC', status: 'Ativo' },
@@ -16,7 +16,20 @@ export class PessoaService{
     { nome: 'Vilma Pereira', cidade: 'Rio de Janeiro', estado: 'RJ', status: 'Inativo' },
   ]
 
-    buscar(pessoa: Pessoa) : Observable<Pessoa[]>{
-        return of(this.pessoas);
-    }
+  comboP: any[] = [
+  {label: 'Manuel Pinheiro', value: 'Manuel Pinheiro'},
+  {label: 'Sebastião da Silva', value: 'Sebastião da Silva'},
+  {label: 'Carla Souza', value: 'Carla Souza'},
+  {label: 'Luis Pereira', value: 'Luis Pereira'},
+  {label: 'Vilma Pereira', value: 'Vilma Pereira'},
+  ]
+
+  buscar(pessoa: Pessoa): Observable<Pessoa[]> {
+    return of(this.pessoas);
+  }
+
+  combo(): Observable<Pessoa[]> {
+    return of(this.comboP)
+  }
+
 }

@@ -37,12 +37,12 @@
 
             <div class="ui-g-6 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.CATEGORY' | translate}} </label>
-                <input pInputText formControlName="categoria">
+                <app-categoria-combo [parentForm]="lancamentosForm"></app-categoria-combo>
             </div>
 
             <div class="ui-g-6 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.PERSON' | translate}} </label>
-                <input pInputText formControlName="pessoa">
+                <app-pessoa-combo [parentForm]="lancamentosForm"></app-pessoa-combo>
             </div>
             <div class="ui-g-12 ui-fluid">
                 <label>{{ 'FIELD.OBSERVATION' | translate}}</label>
