@@ -1,3 +1,4 @@
 <div [formGroup]="parentForm">
     <p-dropdown [placeholder]="'MESSAGE.SELECT_AN_OPTION' | translate" [options]="pessoa$.value" [formControlName]="'pessoa'" [filter]="filter"></p-dropdown>
+    <app-msg-form *ngIf="isRequired" [type]="'required'" [control]="this.parentForm.get('pessoa')" [field]="'FIELD.PERSON'"></app-msg-form>
 </div>

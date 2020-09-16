@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PessoaService } from '../services/pessoa-service';
 import { CategoriaComboComponent } from './combo/categoria-combo/categoria-combo.component';
 import { CategoriaService } from '../services/categoria-service';
+import { MsgFormComponent } from './msg-form/msg-form.component';
 
 
 
@@ -25,6 +26,7 @@ import { CategoriaService } from '../services/categoria-service';
     LanguageSelectorComponent,
     PessoaComboComponent,
     CategoriaComboComponent,
+    MsgFormComponent,
   ],
   exports: [
     DatatableComponent,
@@ -32,6 +34,7 @@ import { CategoriaService } from '../services/categoria-service';
     LanguageSelectorComponent,
     PessoaComboComponent,
     CategoriaComboComponent,
+    MsgFormComponent
   ],
   imports: [
     CommonModule,
