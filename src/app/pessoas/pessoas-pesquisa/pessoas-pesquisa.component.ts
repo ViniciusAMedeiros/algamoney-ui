@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Pessoa } from '../model/pessoa';
+import { Pessoa } from '../../model/pessoa';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PessoaService } from '../services/pessoa-service';
+import { PessoaService } from '../../services/pessoa-service';
 
 @Component({
   selector: 'app-pessoas-pesquisa',

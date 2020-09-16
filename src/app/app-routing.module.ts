@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LancamentosPesquisaComponent } from 'src/app/lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { PessoasPesquisaComponent } from 'src/app/pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
 import { HomeComponent } from './home/home.component';
 import { LancamentosNovoComponent } from './lancamentos/lancamentos-novo/lancamentos-novo.component';
+import { PessoasNovoComponent } from './pessoas/pessoas-novo/pessoas-novo.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'pessoas',
     component: PessoasPesquisaComponent
   },
+  {
+    path: 'pessoas/add',
+    component: PessoasNovoComponent
+  }
   
 ];
 

@@ -1,0 +1,46 @@
+<div class="container">
+    <form novalidate [formGroup]="pessoasForm" (ngSubmit)="salvar()" autocomplete="off">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <h1>{{ 'MENU.NEW_PERSON' | translate }}</h1>
+            </div>
+            <div class="ui-g-12 ui-fluid">
+                <label>{{ 'FIELD.NAME' | translate }}</label>
+                <input pInputText formControlName="nome">
+            </div>
+            <div class="ui-g-9 ui-sm-12 ui-fluid">
+                <label>{{ 'FIELD.STREET' | translate}}</label>
+                <input pInputText formControlName="logradouro">
+            </div>
+            <div class="ui-g-3 ui-sm-12 ui-fluid">
+                <label>{{ 'FIELD.NUMBER' |translate}}</label>
+                <input pInputText formControlName="numero">
+            </div>
+            <div class="ui-g-4 ui-sm-12 ui-fluid">
+                <label>{{ 'FIELD.ADDRESS_SUPPLEMENT' | translate}}</label>
+                <input pInputText formControlName="complemento">
+            </div>
+            <div class="ui-g-4 ui-sm-12 ui-fluid">
+                <label>{{ 'FIELD.NEIGHBORHOOD' | translate}}</label>
+                <input pInputText formControlName="bairro">
+            </div>
+            <div class="ui-g-4 ui-sm-12 ui-fluid">
+                <label>{{ 'FIELD.ZIP_CODE' | translate}}</label>
+                <input pInputText formControlName="cep">
+            </div>
+            <div class="ui-g-6 ui-sm-12 ui-fluid">
+                <label> {{ 'FIELD.CITY' | translate}}</label>
+                <input pInputText formControlName="cidade">
+            </div>
+            <div class="ui-g-6 ui-sm-12 ui-fluid">
+                <label> {{ 'FIELD.STATE' | translate}}</label>
+                <input pInputText formControlName="estado">
+            </div>
+            <div class="ui-g-12">
+                <button pButton type="submit" [label]="'BUTTON.SAVE' | translate"></button>
+                <button class="ui-button-info" pButton type="button" [label]="'BUTTON.NEW' | translate"></button>
+                <a href="javascript:;" (click)="back()"> {{ 'BUTTON.BACK_TO_SEARCH' | translate}}</a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -6,9 +6,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { TooltipModule } from 'primeng/tooltip';
 import { LancamentosPesquisaComponent } from 'src/app/lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { PessoasPesquisaComponent } from 'src/app/pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PessoaService } from './services/pessoa-service';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +22,7 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SharedModule } from './shared/shared.module';
-
+import { PessoasNovoComponent } from './pessoas/pessoas-novo/pessoas-novo.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +31,7 @@ import { SharedModule } from './shared/shared.module';
     PessoasPesquisaComponent,
     HomeComponent,
     LancamentosNovoComponent,
+    PessoasNovoComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +49,7 @@ import { SharedModule } from './shared/shared.module';
     CurrencyMaskModule,
     InputTextareaModule,
     SelectButtonModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     PessoaService,

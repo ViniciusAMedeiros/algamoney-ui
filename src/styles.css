@@ -42,5 +42,9 @@ button {
 }
 
 .select-button {
-    padding: .5em 1em !important; 
+    padding: .5em 1em !important;
+}
+
+.form-error {
+    color: #f4516c
 }

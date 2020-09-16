@@ -1,6 +1,6 @@
 <div class="container">
-    <form class="m-form m-form--label-align-right m-form--fit" novalidate [formGroup]="filterForm"
-          (ngSubmit)="search()"> 
+    <form novalidate [formGroup]="filterForm"
+          (ngSubmit)="search()" autocomplete="off"> 
     <div class="ui-g">
 
         <div class="ui-g-12">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="ui-g-12">
-            <a pButton [label]="'BUTTON.NEW_PERSON' | translate"></a>
+            <a [routerLink]="['add']" pButton [label]="'BUTTON.NEW_PERSON' | translate"></a>
         </div>
     </div>
 </form>

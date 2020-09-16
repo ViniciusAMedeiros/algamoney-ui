@@ -23,11 +23,18 @@ export const locale = {
 			VALUE: 'Valor',
 			PERSON: 'Persona',
 			OBSERVATION: 'Observación',
-			CATEGORY: 'categoría',
+			CATEGORY: 'Categoría',
 			RECEIPT_DATE: 'Fecha de Recepción',
+			STREET: 'Calle',
+			NUMBER: 'Número',
+			ADDRESS_SUPPLEMENT: 'Dirección Complementaria',
+			NEIGHBORHOOD: 'Barrio',
+			ZIP_CODE: 'Código postal',
 
 			VALIDATION: {
 				NO_DATA: 'No se encontraron registros',
+				REQUIRED: 'es requerido',
+				MIN_LENGTH: 'tamaño mínimo es {{min}}',
 			}
 		},
 

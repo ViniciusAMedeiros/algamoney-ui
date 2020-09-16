@@ -25,9 +25,16 @@ export const locale = {
 			OBSERVATION: 'Observation',
 			CATEGORY: 'Category',
 			RECEIPT_DATE: 'Receipt Date',
-
+			STREET: 'Street',
+			NUMBER: 'Number',
+			ADDRESS_SUPPLEMENT: 'Address Supplement',
+			NEIGHBORHOOD: 'Neighborhood',
+			ZIP_CODE: 'Zip Code',
+			
 			VALIDATION: {
 				NO_DATA: 'No records found',
+				REQUIRED: 'is required',
+				MIN_LENGTH: 'minimum length is {{min}}',
 			}
 
 		},

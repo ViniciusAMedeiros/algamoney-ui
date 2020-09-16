@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslationService } from 'src/app/services/translation.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class LancamentosNovoComponent implements OnInit {
 
   // Filter Form
   lancamentosForm: FormGroup;
-  tipos = [{label: 'BUTTON.INCOME' ,value:'Receita'},{label:'BUTTON.EXPENSE', value: 'Despesa'}]
+  tipos = [{ label: 'BUTTON.INCOME', value: 'Receita' }, { label: 'BUTTON.EXPENSE', value: 'Despesa' }]
 
   //calendar locale;
   locale: any;
@@ -24,13 +24,13 @@ export class LancamentosNovoComponent implements OnInit {
 
   ngOnInit() {
     this.lancamentosForm = this.formBuilder.group({
-      vencimento: [''],
-      recebimento: [''],
-      descricao: [''],
-      valor: ['0'],
+      vencimento: ['', [Validators.required]],
+      recebimento: ['', [Validators.required]],
+      descricao: ['', [Validators.required, Validators.minLength(5)]],
+      valor: ['', [Validators.required]],
       observacao: [''],
-      categoria: [''],
-      pessoa: [''],
+      categoria: ['', [Validators.required]],
+      pessoa: ['', [Validators.required]],
       tipo: [this.tipos[0].value]
     })
     this.locale = this.translationService.locale;
@@ -40,8 +40,14 @@ export class LancamentosNovoComponent implements OnInit {
     this.router.navigate(['/lancamentos']);
   }
 
-  salvar(){
-    console.log(this.lancamentosForm.getRawValue());
+  salvar() {
+    if (this.lancamentosForm.invalid || this.lancamentosForm.pending) {
+      let controls = this.lancamentosForm.controls;
+      Object.keys(controls).forEach(controlName =>
+        controls[controlName].markAsTouched()
+      );
+      return;
+    }
   }
 
 }

@@ -42,7 +42,7 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   ngOnInit() {
     this.filterForm = this.formBuilder.group({
-      descricao: ['',Validators.required],
+      descricao: [''],
       validadeDe: [''],
       validadeAte: ['']
     })

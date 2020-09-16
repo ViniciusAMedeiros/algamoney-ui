@@ -25,9 +25,16 @@ export const locale = {
 			OBSERVATION: 'Observação',
 			CATEGORY: 'Categoria',
 			RECEIPT_DATE: 'Data de Recebimento',
+			STREET: 'Logradouro',
+			NUMBER: 'Numero',
+			ADDRESS_SUPPLEMENT: 'Complemento',
+			NEIGHBORHOOD: 'Bairro',
+			ZIP_CODE: 'CEP',
 
 			VALIDATION: {
 				NO_DATA: 'Nenhum registro encontrado',
+				REQUIRED: 'é obrigatório',
+				MIN_LENGTH: 'tamanho mínimo é {{min}}',
 			}
 		},
 

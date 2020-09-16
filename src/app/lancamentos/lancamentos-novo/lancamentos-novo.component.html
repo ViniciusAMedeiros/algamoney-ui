@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="lancamentosForm" (ngSubmit)="salvar()">
+    <form novalidate [formGroup]="lancamentosForm" (ngSubmit)="salvar()" autocomplete="off">
         <div class="ui-g">
             <div class="ui-g-12">
                 <h1>{{ 'MENU.NEW_ACCOUNTING_ENTRY' | translate }}</h1>
@@ -17,32 +17,37 @@
                 <label> {{ 'FIELD.DUE_DATE' | translate}}</label>
                 <p-calendar formControlName="vencimento" [dateFormat]="locale.dateFormat" [locale]="locale">
                 </p-calendar>
+                <app-msg-form [type]="'required'" [control]="this.lancamentosForm.get('vencimento')" [field]="'FIELD.DUE_DATE'"> </app-msg-form>
             </div>
             <div class="ui-g-3 ui-sm-6 ui-fluid">
                 <label>
                     {{ this.lancamentosForm.get('tipo').value == 'Despesa' ?('FIELD.DATE_OF_PAYMENT' | translate) : ('FIELD.RECEIPT_DATE' | translate)}}</label>
                 <p-calendar formControlName="recebimento" [dateFormat]="locale.dateFormat" [locale]="locale">
                 </p-calendar>
+                <app-msg-form [type]="'required'" [control]="this.lancamentosForm.get('recebimento')" [field]="this.lancamentosForm.get('tipo').value == 'Despesa' ? 'FIELD.DATE_OF_PAYMENT' : 'FIELD.RECEIPT_DATE'"></app-msg-form>
             </div>
 
             <div class="ui-g-9 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.DESCRIPTION' | translate}} </label>
                 <input pInputText formControlName="descricao">
+                <app-msg-form [type]="'required'" [control]="this.lancamentosForm.get('descricao')" [field]="'FIELD.DESCRIPTION'"></app-msg-form>
+                <app-msg-form [type]="'minlength'" [control]="this.lancamentosForm.get('descricao')" [field]="'FIELD.DESCRIPTION'"></app-msg-form>
             </div>
 
             <div class="ui-g-3 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.VALUE' | translate}}</label>
                 <input pInputText currencyMask formControlName="valor" [options]="locale.monetary">
+                <app-msg-form [type]="'required'" [control]="this.lancamentosForm.get('valor')" [field]="'FIELD.VALUE'"></app-msg-form>
             </div>
 
             <div class="ui-g-6 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.CATEGORY' | translate}} </label>
-                <app-categoria-combo [parentForm]="lancamentosForm"></app-categoria-combo>
+                <app-categoria-combo [parentForm]="lancamentosForm" [isRequired]="true"></app-categoria-combo>
             </div>
 
             <div class="ui-g-6 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.PERSON' | translate}} </label>
-                <app-pessoa-combo [parentForm]="lancamentosForm" [filter]="true"></app-pessoa-combo>
+                <app-pessoa-combo [parentForm]="lancamentosForm" [filter]="true" [isRequired]="true"></app-pessoa-combo>
             </div>
             <div class="ui-g-12 ui-fluid">
                 <label>{{ 'FIELD.OBSERVATION' | translate}}</label>
