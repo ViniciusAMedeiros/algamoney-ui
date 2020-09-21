@@ -16,18 +16,25 @@ export class PessoasNovoComponent implements OnInit {
 
   ngOnInit() {
     this.pessoasForm = this.formBuilder.group({
-      nome: [''],
-      logradouro: [''],
-      numero: [''],
+      nome: ['',[Validators.required]],
+      logradouro: ['',[Validators.required]],
+      numero: ['',[Validators.required]],
       complemento: [''],
-      bairro: [''],
-      cep: [''],
-      cidade: [''],
-      estado: ['']
+      bairro: ['',[Validators.required]],
+      cep: ['',[Validators.required]],
+      cidade: ['',[Validators.required]],
+      estado: ['',[Validators.required]]
     })
   }
 
   salvar() {
+    if(this.pessoasForm.invalid || this.pessoasForm.pending){
+      let controls = this.pessoasForm.controls
+      Object.keys(controls).forEach(controlName =>
+        controls[controlName].markAsTouched()
+        );
+        return ;
+    }
     console.log(this.pessoasForm.getRawValue());
   }
 

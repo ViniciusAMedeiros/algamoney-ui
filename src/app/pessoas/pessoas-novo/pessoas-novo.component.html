@@ -7,14 +7,17 @@
             <div class="ui-g-12 ui-fluid">
                 <label>{{ 'FIELD.NAME' | translate }}</label>
                 <input pInputText formControlName="nome">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('nome')" [field]="'FIELD.NAME'"></app-msg-form>
             </div>
             <div class="ui-g-9 ui-sm-12 ui-fluid">
                 <label>{{ 'FIELD.STREET' | translate}}</label>
                 <input pInputText formControlName="logradouro">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('logradouro')" [field]="'FIELD.STREET'"></app-msg-form>
             </div>
             <div class="ui-g-3 ui-sm-12 ui-fluid">
                 <label>{{ 'FIELD.NUMBER' |translate}}</label>
                 <input pInputText formControlName="numero">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('numero')" [field]="'FIELD.NUMBER'"></app-msg-form>
             </div>
             <div class="ui-g-4 ui-sm-12 ui-fluid">
                 <label>{{ 'FIELD.ADDRESS_SUPPLEMENT' | translate}}</label>
@@ -23,18 +26,22 @@
             <div class="ui-g-4 ui-sm-12 ui-fluid">
                 <label>{{ 'FIELD.NEIGHBORHOOD' | translate}}</label>
                 <input pInputText formControlName="bairro">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('bairro')" [field]="'FIELD.NEIGHBORHOOD'"></app-msg-form>
             </div>
             <div class="ui-g-4 ui-sm-12 ui-fluid">
                 <label>{{ 'FIELD.ZIP_CODE' | translate}}</label>
                 <input pInputText formControlName="cep">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('cep')" [field]="'FIELD.ZIP_CODE'"></app-msg-form>
             </div>
             <div class="ui-g-6 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.CITY' | translate}}</label>
                 <input pInputText formControlName="cidade">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('cidade')" [field]="'FIELD.CITY'"></app-msg-form>
             </div>
             <div class="ui-g-6 ui-sm-12 ui-fluid">
                 <label> {{ 'FIELD.STATE' | translate}}</label>
                 <input pInputText formControlName="estado">
+                <app-msg-form [type]="'required'" [control]="this.pessoasForm.get('estado')" [field]="'FIELD.STATE'"></app-msg-form>
             </div>
             <div class="ui-g-12">
                 <button pButton type="submit" [label]="'BUTTON.SAVE' | translate"></button>
