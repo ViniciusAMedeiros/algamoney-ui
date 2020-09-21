@@ -125,7 +125,6 @@ export class LanguageSelectorComponent implements OnInit {
 				monetary: { prefix: '', thousands: '.', decimal: ',' }
 			};
 		}
-		console.log(this.translationService.locale);
 	}
 
 

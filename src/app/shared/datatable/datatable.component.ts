@@ -27,7 +27,7 @@ export class DatatableComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    //console.log(this.columns[this.columns.length - 1]['actions']);
+
   }
 
   ngDoCheck() {
@@ -81,7 +81,6 @@ export class DatatableComponent implements OnInit, DoCheck {
 
   setBtnColor(action: any){
     let _class = "";
-    console.log(action);
     if(action.label === "ACTION.EDIT"){
       _class = "btn-blue";
     }else if(action.label === "ACTION.REMOVE"){

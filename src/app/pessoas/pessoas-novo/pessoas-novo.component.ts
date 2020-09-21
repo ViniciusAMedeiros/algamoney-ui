@@ -35,7 +35,7 @@ export class PessoasNovoComponent implements OnInit {
         );
         return ;
     }
-    console.log(this.pessoasForm.getRawValue());
+    //TODO
   }
 
   back(){

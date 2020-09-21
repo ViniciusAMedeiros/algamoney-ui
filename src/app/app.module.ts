@@ -1,37 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { AsyncPipe, DatePipe, DecimalPipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { LancamentosPesquisaComponent } from 'src/app/lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { PessoasPesquisaComponent } from 'src/app/pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PessoaService } from './services/pessoa-service';
-import { HttpClientModule } from '@angular/common/http';
-import { LancamentoService } from './services/lancamento-service';
-import { DecimalPipe, DatePipe, AsyncPipe } from '@angular/common';
-import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { DropdownModule } from 'primeng/dropdown';
-import { LancamentosNovoComponent } from './lancamentos/lancamentos-novo/lancamentos-novo.component';
-import { CalendarModule } from 'primeng/calendar'
+import { TranslateModule } from '@ngx-translate/core';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { PessoasModule } from './pessoas/pessoas.module';
+import { LancamentoService } from './services/lancamento-service';
 import { SharedModule } from './shared/shared.module';
-import { PessoasNovoComponent } from './pessoas/pessoas-novo/pessoas-novo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LancamentosPesquisaComponent,
-    PessoasPesquisaComponent,
     HomeComponent,
-    LancamentosNovoComponent,
-    PessoasNovoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +42,9 @@ import { PessoasNovoComponent } from './pessoas/pessoas-novo/pessoas-novo.compon
     InputTextareaModule,
     SelectButtonModule,
     SharedModule,
+    PessoasModule
   ],
   providers: [
-    PessoaService,
     LancamentoService,
     DecimalPipe,
     DatePipe,

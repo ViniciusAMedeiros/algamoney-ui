@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LancamentosPesquisaComponent } from 'src/app/lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { PessoasPesquisaComponent } from 'src/app/pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { LancamentosNovoComponent } from './lancamentos/lancamentos-novo/lancamentos-novo.component';
-import { PessoasNovoComponent } from './pessoas/pessoas-novo/pessoas-novo.component';
 
 const routes: Routes = [
   {
@@ -13,20 +9,14 @@ const routes: Routes = [
   },
   {
     path: 'lancamentos',
-    component: LancamentosPesquisaComponent
-  },
-  {
-    path: 'lancamentos/add',
-    component: LancamentosNovoComponent
+    loadChildren: './lancamentos/lancamentos.module#LancamentosModule'
   },
   {
     path: 'pessoas',
-    component: PessoasPesquisaComponent
+    loadChildren: './pessoas/pessoas.module#PessoasModule'
+
   },
-  {
-    path: 'pessoas/add',
-    component: PessoasNovoComponent
-  }
+  
   
 ];
 

@@ -58,7 +58,7 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   remover(){
-    console.log("TESTE");
+    //TODO
   }
 
 }
