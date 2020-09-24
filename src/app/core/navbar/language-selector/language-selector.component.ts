@@ -80,7 +80,7 @@ export class LanguageSelectorComponent implements OnInit {
 	}
 
 	getLocaleByLang(lang) {
-		lang === '[object Object]' ? lang = 'pt' : lang = lang;
+		lang === '[object Object]' ? 'pt' : lang;
 		if (lang === 'pt') {
 			this.translationService.locale = {
 				firstDayOfWeek: 0,
