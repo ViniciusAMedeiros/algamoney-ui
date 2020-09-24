@@ -13,24 +13,18 @@ import { CategoriaComboComponent } from './combo/categoria-combo/categoria-combo
 import { PessoaComboComponent } from './combo/pessoa-combo/pessoa-combo.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { MsgFormComponent } from './msg-form/msg-form.component';
-import { LanguageSelectorComponent } from './navbar/language-selector/language-selector.component';
-import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
     DatatableComponent,
-    NavbarComponent,
-    LanguageSelectorComponent,
     PessoaComboComponent,
     CategoriaComboComponent,
     MsgFormComponent,
   ],
   exports: [
     DatatableComponent,
-    NavbarComponent,
-    LanguageSelectorComponent,
     PessoaComboComponent,
     CategoriaComboComponent,
     MsgFormComponent
@@ -43,7 +37,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     RouterModule,
     ButtonModule,
     DropdownModule,
-    FormsModule,
     FormsModule,
     ReactiveFormsModule,
   ],

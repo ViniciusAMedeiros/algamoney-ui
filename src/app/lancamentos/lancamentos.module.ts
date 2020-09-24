@@ -13,6 +13,7 @@ import { TableModule } from 'primeng/table';
 import { SharedModule } from '../shared/shared.module';
 import { LancamentosNovoComponent } from './lancamentos-novo/lancamentos-novo.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentoService } from '../services/lancamento-service';
 
 const routes: Routes = [
   {
@@ -45,6 +46,9 @@ const routes: Routes = [
     CalendarModule,
     CurrencyMaskModule,
     InputTextareaModule    
+  ],
+  providers:[
+    LancamentoService,
   ]
 })
 export class LancamentosModule { }
