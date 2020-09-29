@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Lancamento } from 'src/app/model/lancamento';
 import { LancamentoService } from 'src/app/services/lancamento-service';
@@ -37,7 +37,8 @@ export class LancamentosPesquisaComponent implements OnInit {
     private formBuilder: FormBuilder,
     private lancamentoService: LancamentoService,
     private decimalpipe: DecimalPipe,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private changeDetectorRefs: ChangeDetectorRef
     ) { }
 
   ngOnInit() {
@@ -51,9 +52,11 @@ export class LancamentosPesquisaComponent implements OnInit {
   }
 
   search(){
+    this.tableStatus = true;
     this.lancamentoService.buscar(this.filterForm.getRawValue()).subscribe(res=>{
-      this.tableStatus = true;
-      this.lancamentos = res;
+      this.lancamentos = res['content'];
+      this.tableStatus = false;
+      this.changeDetectorRefs.detectChanges();
     })
   }
 
