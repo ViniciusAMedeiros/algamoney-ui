@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Lancamento } from '../model/lancamento';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DatePipe } from '@angular/common';
 
 const api = environment.lancamentoAPI;
 
@@ -11,13 +12,23 @@ const api = environment.lancamentoAPI;
 export class LancamentoService {
 
     headers = new HttpHeaders().append('authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
-    
-    
-    
-    constructor(private http: HttpClient) { }
 
-    buscar(lancamento: Lancamento): Observable<any[]> {
-        return this.http.get<any[]>(`${api}?resumo`, { headers: this.headers });
+
+
+    constructor(
+        private http: HttpClient,
+        private datePipe: DatePipe) { }
+
+    buscar(lancamento: Lancamento): Observable<any> {
+        let params = new HttpParams();
+        if (lancamento.descricao != '') {
+            params = params.append('descricao',lancamento.descricao);
+        } if (lancamento.validadeDe) {
+            params = params.append('dataVencimentoDe',this.datePipe.transform(lancamento.validadeDe,'yyyy-MM-dd'));
+        } if (lancamento.validadeAte) {
+            params = params.append('dataVencimentoAte',this.datePipe.transform(lancamento.validadeAte,'yyyy-MM-dd'));
+        }
+        return this.http.get<any>(`${api}?resumo`, { headers: this.headers, params: params });
     }
 
 }

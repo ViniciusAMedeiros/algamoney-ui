@@ -1,6 +1,6 @@
 <div class="container">
   <form novalidate [formGroup]="filterForm" (ngSubmit)="search()" autocomplete="off">
-    
+
     <div class="ui-g-12">
       <h1>{{ 'MENU.ACCOUNTING_ENTRY' | translate }}</h1>
     </div>
@@ -12,9 +12,11 @@
 
     <div class="ui-g-12">
       <label style="display: block;">{{ 'FIELD.VALIDITY' | translate }}</label>
-      <input pInputText type="text" style="width: 95px;" formControlName="validadeDe">
+      <p-calendar formControlName="validadeDe" [dateFormat]="locale.dateFormat" [locale]="locale">
+      </p-calendar>
       <label>{{ 'FIELD.UNTIL' | translate }}</label>
-      <input pInputText type="text" style="width: 95px;" formControlName="validadeAte">
+      <p-calendar formControlName="validadeAte" [dateFormat]="locale.dateFormat" [locale]="locale">
+      </p-calendar>
     </div>
 
     <div class="ui-g-12">

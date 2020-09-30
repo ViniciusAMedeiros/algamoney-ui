@@ -6,7 +6,7 @@ export class Lancamento {
     valor: number;
     pessoa: string;
 
-    validadeDe: number;
-    validadeAte: number;
+    validadeDe: Date;
+    validadeAte: Date;
 
 }

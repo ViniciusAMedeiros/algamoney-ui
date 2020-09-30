@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Lancamento } from 'src/app/model/lancamento';
 import { LancamentoService } from 'src/app/services/lancamento-service';
 import { DecimalPipe, DatePipe } from '@angular/common';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -15,13 +16,16 @@ export class LancamentosPesquisaComponent implements OnInit {
   filterForm: FormGroup;
   tableStatus = false;
 
+  //calendar locale;
+  locale: any;
+
   columns = [
-    { columnDef: 'tipo', header: 'FIELD.TYPE', cell: (row: Lancamento) => row.tipo },
+    { columnDef: 'pessoa', header: 'FIELD.PERSON', cell: (row: Lancamento) => row.pessoa },
     { columnDef: 'descricao', header: 'FIELD.DESCRIPTION', cell: (row: Lancamento) => row.descricao },
     { columnDef: 'dataVencimento', header: 'FIELD.DUE_DATE', cell: (row: Lancamento) => row.dataVencimento != null ? this.datePipe.transform(row.dataVencimento,'dd/MM/y'): '' },
     { columnDef: 'dataPagamento', header: 'FIELD.DATE_OF_PAYMENT', cell: (row: Lancamento) => this.datePipe.transform(row.dataPagamento,'dd/MM/y') },
     { columnDef: 'valor', header: 'FIELD.VALUE', align: "right", cell: (row: Lancamento) => this.decimalpipe.transform(row.valor,'1.2-2') },
-    { columnDef: 'pessoa', header: 'FIELD.PERSON', cell: (row: Lancamento) => row.pessoa },
+    
     {
       columnDef: 'actions', header: 'FIELD.ACTIONS', actions: [
         { label: 'ACTION.EDIT', link: './edit' },
@@ -38,6 +42,7 @@ export class LancamentosPesquisaComponent implements OnInit {
     private lancamentoService: LancamentoService,
     private decimalpipe: DecimalPipe,
     private datePipe: DatePipe,
+    private translationService: TranslationService,
     private changeDetectorRefs: ChangeDetectorRef
     ) { }
 
@@ -47,8 +52,7 @@ export class LancamentosPesquisaComponent implements OnInit {
       validadeDe: [''],
       validadeAte: ['']
     })
-    this.filterForm.markAsUntouched();
-    this.filterForm.updateValueAndValidity();
+    this.locale = this.translationService.locale;
   }
 
   search(){
