@@ -24,8 +24,8 @@
     </div>
 
     <div class="ui-g-12">
-      <app-datatable [data]="lancamentos" [columns]="columns" [pag]="true" [rows]="3" [resp]="true"
-        [isLoading]="tableStatus" (action1)="remover()"></app-datatable>
+      <app-datatable [data]="lancamentos" [columns]="columns" [resp]="true" [isLoading]="tableStatus"
+        (action1)="remover()" [pag]="true" [rows]="this.pagination.getSize()" [lazy]="true" [totalRecords]="this.pagination.getTotal()" (onChangePage)="setPage($event)"></app-datatable>
     </div>
 
     <div class="ui-g-12">

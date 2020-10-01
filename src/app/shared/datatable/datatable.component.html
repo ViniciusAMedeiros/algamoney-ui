@@ -1,11 +1,12 @@
-<p-table [value]="data" [paginator]="pag" [rows]="rows" [responsive]="resp" [loading]="isLoading"
-  [rowsPerPageOptions]="[10,25,50]">
+<p-table [value]="data" [paginator]="pag" [rows]="rows" [responsive]="resp" [loading]="isLoading" [lazy]="lazy"
+  [totalRecords]="totalRecords" (onLazyLoad)="changePage($event)">
   <!--Header-->
   <ng-template pTemplate="header">
     <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col['columnDef']" [ngClass]="setColSize(col)">
+      <th *ngFor="let col of columns" [ngClass]="setColSize(col)">
+        <!--[pSortableColumn]="col['columnDef']"  -->
         {{col['header'] | translate}}
-        <p-sortIcon [field]="col.header"></p-sortIcon>
+        <!-- <p-sortIcon [field]="col.header"></p-sortIcon> TODO -->
       </th>
     </tr>
   </ng-template>

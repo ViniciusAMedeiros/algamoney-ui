@@ -4,6 +4,8 @@ import { Lancamento } from 'src/app/model/lancamento';
 import { LancamentoService } from 'src/app/services/lancamento-service';
 import { DecimalPipe, DatePipe } from '@angular/common';
 import { TranslationService } from 'src/app/services/translation.service';
+import { Paginacao } from 'src/app/model/paginacao';
+import { LazyRoute } from '@angular/compiler';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -15,6 +17,9 @@ export class LancamentosPesquisaComponent implements OnInit {
   // Filter Form
   filterForm: FormGroup;
   tableStatus = false;
+
+  //pagination
+  pagination: Paginacao = new Paginacao();
 
   //calendar locale;
   locale: any;
@@ -57,11 +62,18 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   search(){
     this.tableStatus = true;
-    this.lancamentoService.buscar(this.filterForm.getRawValue()).subscribe(res=>{
+    this.lancamentoService.buscar(this.filterForm.getRawValue(),this.pagination).subscribe(res=>{
+      console.log(res);
       this.lancamentos = res['content'];
+      this.pagination.setTotal(res['totalElements']);
       this.tableStatus = false;
       this.changeDetectorRefs.detectChanges();
     })
+  }
+
+  setPage(event){
+    this.pagination.setPage(event.first / event.rows);
+    event.first != 0 ? this.search(): '';
   }
 
   remover(){

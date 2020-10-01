@@ -15,7 +15,11 @@ export class DatatableComponent implements OnInit, DoCheck {
   @Input() rows: number = 0;
   @Input() resp: boolean = false;
   @Input() isLoading: boolean;
+  @Input() lazy: boolean;
+  @Input() totalRecords: number;
   @Output() action1 = new EventEmitter();
+  @Output() onChangePage = new EventEmitter();
+
 
 
   iterableDiffer: any;
@@ -98,6 +102,10 @@ export class DatatableComponent implements OnInit, DoCheck {
 
   callAction1(row: any) {
     this.action1.emit(row);
+  }
+
+  changePage(event){
+    this.onChangePage.emit(event);
   }
 
 }
