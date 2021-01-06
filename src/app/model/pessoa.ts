@@ -1,8 +1,13 @@
 export class Pessoa {
 
 nome: string;
-cidade: string; 
-estado: string; 
+endereco: Endereco;
 status: string;
+ativo: boolean
 
+}
+
+export class Endereco{
+    cidade: string; 
+    estado: string;
 }

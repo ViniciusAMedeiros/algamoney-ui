@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Menu } from 'src/app/config/menu';
 
 interface LanguageFlag {
   lang: string;
@@ -14,9 +15,12 @@ interface LanguageFlag {
 })
 export class NavbarComponent implements OnInit {
 
+  menu: Menu = new Menu();
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.menu);
   }
 
 }

@@ -1,28 +1,29 @@
 <div class="container">
-    <form novalidate [formGroup]="filterForm"
-          (ngSubmit)="search()" autocomplete="off"> 
-    <div class="ui-g">
+    <form novalidate [formGroup]="filterForm" (ngSubmit)="search()" autocomplete="off">
+        <div class="ui-g">
 
-        <div class="ui-g-12">
-            <h1> {{ 'MENU.PERSON' | translate}}</h1>
-        </div>
+            <div class="ui-g-12">
+                <h1> {{ 'MENU.PERSON' | translate}}</h1>
+            </div>
 
-        <div class="ui-g-12 ui-fluid">
-            <label>{{ 'FIELD.NAME' | translate}}</label>
-            <input pInputText type="text" formControlName="nome">
-        </div>
+            <div class="ui-g-12 ui-fluid">
+                <label>{{ 'FIELD.NAME' | translate}}</label>
+                <input pInputText type="text" formControlName="nome">
+            </div>
 
-        <div class="ui-g-12">
-            <button pButton type="submit" [label]="'BUTTON.SEARCH' | translate"></button>
-        </div>
+            <div class="ui-g-12">
+                <button pButton type="submit" [label]="'BUTTON.SEARCH' | translate"></button>
+            </div>
 
-        <div class="ui-g-12">
-            <app-datatable [data]="pessoas" [columns]="columns" [pag]="true" [rows]="5" [resp]="true" [isLoading]="tableStatus"></app-datatable>
-        </div>
+            <div class="ui-g-12">
+                <app-datatable [data]="pessoas" [columns]="columns" [pag]="true" [rows]="5" [resp]="true"
+                    [isLoading]="tableStatus" [rows]="this.pagination.getSize()" [lazy]="true"
+                    [totalRecords]="this.pagination.getTotal()" (onChangePage)="setPage($event)"></app-datatable>
+            </div>
 
-        <div class="ui-g-12">
-            <a [routerLink]="['add']" pButton [label]="'BUTTON.NEW_PERSON' | translate"></a>
+            <div class="ui-g-12">
+                <a [routerLink]="['add']" pButton [label]="'BUTTON.NEW_PERSON' | translate"></a>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 </div>

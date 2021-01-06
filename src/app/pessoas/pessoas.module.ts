@@ -42,7 +42,7 @@ const routes: Routes = [
     TranslateModule.forChild(),
     SharedModule,
   ],providers:[
-    PessoaService
+    PessoaService,
   ]
 })
 export class PessoasModule { }

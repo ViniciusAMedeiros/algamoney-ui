@@ -27,10 +27,10 @@ export class LancamentosPesquisaComponent implements OnInit {
   columns = [
     { columnDef: 'pessoa', header: 'FIELD.PERSON', cell: (row: Lancamento) => row.pessoa },
     { columnDef: 'descricao', header: 'FIELD.DESCRIPTION', cell: (row: Lancamento) => row.descricao },
-    { columnDef: 'dataVencimento', header: 'FIELD.DUE_DATE', cell: (row: Lancamento) => row.dataVencimento != null ? this.datePipe.transform(row.dataVencimento,'dd/MM/y'): '' },
-    { columnDef: 'dataPagamento', header: 'FIELD.DATE_OF_PAYMENT', cell: (row: Lancamento) => this.datePipe.transform(row.dataPagamento,'dd/MM/y') },
-    { columnDef: 'valor', header: 'FIELD.VALUE', align: "right", cell: (row: Lancamento) => this.decimalpipe.transform(row.valor,'1.2-2') },
-    
+    { columnDef: 'dataVencimento', header: 'FIELD.DUE_DATE', cell: (row: Lancamento) => row.dataVencimento != null ? this.datePipe.transform(row.dataVencimento, 'dd/MM/y') : '' },
+    { columnDef: 'dataPagamento', header: 'FIELD.DATE_OF_PAYMENT', cell: (row: Lancamento) => this.datePipe.transform(row.dataPagamento, 'dd/MM/y') },
+    { columnDef: 'valor', header: 'FIELD.VALUE', align: "right", cell: (row: Lancamento) => this.decimalpipe.transform(row.valor, '1.2-2') },
+
     {
       columnDef: 'actions', header: 'FIELD.ACTIONS', actions: [
         { label: 'ACTION.EDIT', link: './edit' },
@@ -49,7 +49,7 @@ export class LancamentosPesquisaComponent implements OnInit {
     private datePipe: DatePipe,
     private translationService: TranslationService,
     private changeDetectorRefs: ChangeDetectorRef
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.filterForm = this.formBuilder.group({
@@ -60,10 +60,9 @@ export class LancamentosPesquisaComponent implements OnInit {
     this.locale = this.translationService.locale;
   }
 
-  search(){
+  search() {
     this.tableStatus = true;
-    this.lancamentoService.buscar(this.filterForm.getRawValue(),this.pagination).subscribe(res=>{
-      console.log(res);
+    this.lancamentoService.buscar(this.filterForm.getRawValue(), this.pagination).subscribe(res => {
       this.lancamentos = res['content'];
       this.pagination.setTotal(res['totalElements']);
       this.tableStatus = false;
@@ -71,12 +70,14 @@ export class LancamentosPesquisaComponent implements OnInit {
     })
   }
 
-  setPage(event){
-    this.pagination.setPage(event.first / event.rows);
-    event.first != 0 ? this.search(): '';
+  setPage(event) {
+    if (this.pagination.getPage() != event.first) {
+      this.pagination.setPage(event.first / event.rows);
+      this.search();
+    }
   }
 
-  remover(){
+  remover() {
     //TODO
   }
 

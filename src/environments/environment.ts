@@ -7,7 +7,8 @@ const host = `http://localhost:8080`;
 export const environment = {
   production: false,
 
-  lancamentoAPI: `${host}/lancamentos`
+  lancamentoAPI: `${host}/lancamentos`,
+  pessoaAPI: `${host}/pessoas`
 
 };
 

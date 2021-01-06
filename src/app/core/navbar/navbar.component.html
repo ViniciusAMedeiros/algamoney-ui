@@ -10,9 +10,8 @@
         </div>
         <ul class="navbar-menu" [hidden]="!exibindoMenu">
             <li class="navbar-usuario">José da Silva</li>
-            <li class="navbar-menuitem"><a routerLink="lancamentos" routerLinkActive="selected">{{ 'MENU.ACCOUNTING_ENTRY' | translate }}</a></li>
-            <li class="navbar-menuitem"><a routerLink="pessoas" routerLinkActive="selected">{{ 'MENU.PERSON' | translate}}</a></li>
-            <li class="navbar-menuitem"><a routerLink="">{{ 'MENU.LOGOUT' | translate}}</a></li>
+            <li *ngFor="let item of menu.items" class="navbar-menuitem"><a [routerLink]="item.page" [routerLinkActive]="item.active ? 'selected' : '' ">{{ item.title | translate }}</a></li>
+            
         </ul>
     </div>
 </nav>

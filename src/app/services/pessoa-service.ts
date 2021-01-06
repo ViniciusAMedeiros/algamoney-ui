@@ -1,10 +1,16 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Pessoa } from '../model/pessoa';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Paginacao } from '../model/paginacao';
+
+const api = environment.pessoaAPI;
 
 @Injectable()
 export class PessoaService {
+
+  headers = new HttpHeaders().append('authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
   constructor(private http: HttpClient) { }
 
@@ -17,15 +23,25 @@ export class PessoaService {
   ]
 
   comboP: any[] = [
-  {label: 'Manuel Pinheiro', value: 'Manuel Pinheiro'},
-  {label: 'Sebastião da Silva', value: 'Sebastião da Silva'},
-  {label: 'Carla Souza', value: 'Carla Souza'},
-  {label: 'Luis Pereira', value: 'Luis Pereira'},
-  {label: 'Vilma Pereira', value: 'Vilma Pereira'},
+    { label: 'Manuel Pinheiro', value: 'Manuel Pinheiro' },
+    { label: 'Sebastião da Silva', value: 'Sebastião da Silva' },
+    { label: 'Carla Souza', value: 'Carla Souza' },
+    { label: 'Luis Pereira', value: 'Luis Pereira' },
+    { label: 'Vilma Pereira', value: 'Vilma Pereira' },
   ]
 
-  buscar(pessoa: Pessoa): Observable<Pessoa[]> {
-    return of(this.pessoas);
+  buscar(pessoa: Pessoa, pagination: Paginacao): Observable<any[]> {
+    let params = new HttpParams();
+    console.log(pessoa.nome);
+    if (pessoa.nome != '') {
+      params = params.append('nome', pessoa.nome)
+    }
+
+    params = params.append('page', pagination.getPage().toString());
+    params = params.append('size', pagination.getSize().toString());
+
+    return this.http.get<any>(`${api}`, { headers: this.headers, params: params })
+
   }
 
   combo(): Observable<Pessoa[]> {
